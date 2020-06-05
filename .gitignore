@@ -1,4 +1,7 @@
-#macOS
+# dev env files
+create_tables.py
+
+# macOS
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
