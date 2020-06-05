@@ -19,11 +19,12 @@ class Item(Resource):
         item = ItemModel.find_by_name(name)
         if item:
             return item.json()
-        return {'message': 'Item not found'}
+        return {'message': 'Item not found'}, 404
 
     def post(self, name):
         if ItemModel.find_by_name(name):
             return {'message': "An item with name '{}' already exists.".format(name)}, 400
+
         data = Item.parser.parse_args()
 
         item = ItemModel(name, **data)
